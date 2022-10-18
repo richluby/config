@@ -1,3 +1,11 @@
+# Two-line prompt
+if [[ -n $STY ]]; then
+    PS1='\[\033k\033\\\]'
+    export PS1="\033[32m\D{%H:%M}-\033[34m\u\033[31m@\h:\033[36m\w\033[37m${PS1}\n "
+else
+    export PS1="\033[32m\D{%H:%M}-\033[34m\u\033[31m@\h:\033[36m\w\033[37m\n "
+fi
+
 shopt -s histappend
 export SCREENDIR="$HOME/.config/screen"
 export SCREENRC="$HOME/.config/screenrc"
@@ -23,7 +31,6 @@ alias gl='gitlog'
 alias code='code --disable-gpu'
 
 export EDITOR=/usr/bin/vim
-#source /home/user/.config/broot/launcher/bash/br
 
 export PATH="$PATH:$HOME/bin/"
 
